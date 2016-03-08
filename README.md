@@ -50,5 +50,5 @@ After that, you will have to use redis-trib.rb to configure your cluster. Check 
 
 ## Development
 
-This Puppet module is an open project, and community contributions are essential for keeping it great. I can't access the huge number of platforms and myriad hardware, software, and deployment configurations that Puppet is intended to serve. Send me your pull requests on Github! 
+This Puppet module is an open project, and community contributions are essential for keeping it great. I can't access the huge number of platforms and myriad hardware, software, and deployment configurations that Puppet is intended to serve. I encourage you to contribute. Send me your pull requests on Github! 
 
