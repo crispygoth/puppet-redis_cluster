@@ -6,7 +6,7 @@
   "license": "Apache-2.0",
   "source": "https://github.com/Asher256/puppet-redis_cluster",
   "project_page": "https://github.com/Asher256/puppet-redis_cluster",
-  "issues_url": "",
+  "issues_url": "https://github.com/Asher256/puppet-redis_cluster/issues",
   "dependencies": [
     {"name":"puppetlabs/stdlib","version_requirement":">= 4.5.0 < 5.0.0"}
   ],
