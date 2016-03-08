@@ -14,7 +14,7 @@ The redis_cluster module lets you use Puppet to install and configure multiple i
 Redis_cluster module Features:
 - Redis cluster configuration (Redis >= 3.0)
 - Redis configuration (with Augeas)
-- Multiple Redis Instances in the same node (with an alternative /etc/init.d/ script)
+- Multiple Redis Instances in the same node (with systemd)
 
 ## Requirements
 
@@ -44,6 +44,7 @@ redis_cluster::instance{'slave':
   port => '7001',
 }
 ~~~
+After that, you will have to use redis-trib.rb to configure your cluster. Check this tutorial http://redis.io/topics/cluster-tutorial .
 
 **Note:** The main `redis_cluster` class is required by all other classes (redis_cluster::instance for example). You must declare it whenever you use the module.
 
