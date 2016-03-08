@@ -15,21 +15,23 @@
 
 class redis_cluster::repos {
   # should be Debian + version 8 (jessie)
-  if $::operatingsystem == 'Debian' and versioncmp($::lsbdistrelease, '8.0') >= 0 {
-    # install the dotdeb repositories for Debian >= Jessie
-    apt::source { 'apt_source_dotdeb':
-      location => 'http://packages.dotdeb.org',
-      release  => 'jessie',
-      repos    => 'all',
-    }
+  if $::operatingsystem == 'Debian' {
+    if versioncmp($::lsbdistrelease, '8.0') >= 0 && versioncmp($::lsbdistrelease, '9.0') < 0 {
+      # install the dotdeb repositories for Debian >= Jessie
+      apt::source { 'apt_source_dotdeb':
+        location => 'http://packages.dotdeb.org',
+        release  => 'jessie',
+        repos    => 'all',
+      }
 
-    exec { 'apt_key_add_dotdeb':
-      command => 'curl -L --silent "http://www.dotdeb.org/dotdeb.gpg" | apt-key add -',
-      unless  => 'apt-key list | grep -q dotdeb',
-      path    => [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/' ];
-    }
+      exec { 'apt_key_add_dotdeb':
+        command => 'curl -L --silent "http://www.dotdeb.org/dotdeb.gpg" | apt-key add -',
+        unless  => 'apt-key list | grep -q dotdeb',
+        path    => [ '/bin/', '/sbin/' , '/usr/bin/', '/usr/sbin/' ];
+      }
 
-    Exec['apt_key_add_dotdeb'] -> Apt::Source['apt_source_dotdeb'] -> Class['::apt::update']
+      Exec['apt_key_add_dotdeb'] -> Apt::Source['apt_source_dotdeb'] -> Class['::apt::update']
+    }
   }
   else {
     warning('Your operating system it not supported by "redis_cluster". I encourage you to contribute! (currently, only Debian >= Jessie is supported)')

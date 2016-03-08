@@ -20,7 +20,9 @@ Redis_cluster module Features:
 
 - Operating system: Debian >= Jessie 
 - Puppet module stdlib: https://forge.puppetlabs.com/puppetlabs/stdlib 
-- Puppet module apt: https://forge.puppetlabs.com/puppetlabs/apt
+- Puppet module apt (if your target OS is Debian): https://forge.puppetlabs.com/puppetlabs/apt
+
+Note: to install the latest version of Redis (>= 3.0 is required for the clustering support), the module adds the repository dotdeb.org to /etc/apt/sources.list.d/
 
 ## Beginning with redis_cluster (example)
 
