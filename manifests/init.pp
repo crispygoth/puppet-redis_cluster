@@ -23,7 +23,7 @@
 # === Authors
 #
 # Copyright (c) Asher256
-# Contact: contact@asher256.com
+# Contact: asher256@gmail.com
 #
 # === Examples
 #

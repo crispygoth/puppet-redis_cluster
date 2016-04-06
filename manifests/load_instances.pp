@@ -6,7 +6,7 @@
 #
 # === Authors
 #
-# Asher256 <contact@asher256.com>
+# Asher256 <asher256@gmail.com>
 # Copyright (c) Asher256
 #
 # === Examples
