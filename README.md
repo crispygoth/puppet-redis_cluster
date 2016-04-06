@@ -5,7 +5,7 @@
 1. [Overview](#overview)
 2. [Github repository](#github-repository)
 2. [Requirements](#requirements)
-3. [Beginning with redis_cluster (example)](#beginning)
+3. [Beginning with redis_cluster (example)](#beginning-with-redis-cluster--example-)
 4. [Development](#development)
 
 ## Overview
