@@ -3,7 +3,7 @@
 #### Table of Contents
 
 1. [Overview](#overview)
-2. [Author and Github](#Author)
+2. [Github repository](#github-repository)
 2. [Requirements](#requirements)
 3. [Beginning with redis_cluster (example)](#beginning)
 4. [Development](#development)
@@ -17,9 +17,8 @@ Redis_cluster module Features:
 - Redis configuration (with Augeas)
 - Multiple Redis Instances in the same node (with systemd)
 
-## Author and Github
+## Github repository
 
-* Author: Asher256 <asher256@gmail.com>
 * Github: https://github.com/Asher256/puppet-redis_cluster
 
 ## Requirements
