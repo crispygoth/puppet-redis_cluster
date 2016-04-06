@@ -5,7 +5,7 @@
 1. [Overview](#overview)
 2. [Github repository](#github-repository)
 2. [Requirements](#requirements)
-3. [Beginning with redis_cluster (example)](#beginning-with-redis-cluster)
+3. [Beginning with redis_cluster](#beginning-with-redis-cluster)
 4. [Development](#development)
 
 ## Overview
@@ -29,7 +29,7 @@ Redis_cluster module Features:
 
 Note: to install the latest version of Redis (>= 3.0 is required for the clustering support), the module adds the repository dotdeb.org to /etc/apt/sources.list.d/
 
-## Beginning with redis_cluster (example)
+## Beginning with redis_cluster
 
 To use the redis_cluster module with two instances:
 
