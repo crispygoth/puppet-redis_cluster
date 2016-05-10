@@ -28,18 +28,27 @@ class redis_cluster::install {
 
   Class['::apt::update'] -> Package <| |>
 
-  #
-  # Sysctl configuration
-  #
-  file { '/etc/sysctl.d/70-redis.conf':
-    ensure  => present,
-    content => 'vm.overcommit_memory=1
-net.core.somaxconn=1024',
-  }
+  if ($::redis_cluster::manage_sysctls)
+  {
+    #
+    # Sysctl configuration
+    #
+    file { '/etc/sysctl.d/70-redis.conf':
+      ensure  => present,
+      content => 'vm.overcommit_memory=1
+  net.core.somaxconn=1024',
+    }
 
-  exec { 'sysctl --load=/etc/sysctl.d/70-redis.conf':
-    subscribe   => File['/etc/sysctl.d/70-redis.conf'],
-    refreshonly => true,
+    exec { 'sysctl --load=/etc/sysctl.d/70-redis.conf':
+      subscribe   => File['/etc/sysctl.d/70-redis.conf'],
+      refreshonly => true,
+    }
+  }
+  else
+  {
+    file { '/etc/sysctl.d/70-redis.conf':
+      ensure  => absent
+    }
   }
 
   #

@@ -420,9 +420,7 @@ define redis_cluster::instance(
 
   redis_cluster::instance::service {$redis_name:
     redis_port => $redis_port,
-    require    =>  [Class['::redis_cluster::repos'],
-                    Class['::redis_cluster::install'],
-                    Class['::redis_cluster::load_instances'],
+    require    =>  [Class['::redis_cluster::load_instances'],
                     Augeas["update ${redis_config}"]],
   }
 }

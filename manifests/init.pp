@@ -53,13 +53,18 @@ class redis_cluster(
   $cluster_node_timeout = 15000,
   $redis_instances_path = '/opt/redis',
   $systemd              = true,
+  $manage_repos         = true,
+  $manage_sysctls       = true,
 )
 {
   validate_string($redis_version)
   validate_integer($cluster_node_timeout)
   validate_bool($systemd)
 
-  include redis_cluster::repos
+  if ($manage_repos)
+  {
+    include redis_cluster::repos
+  }
   include redis_cluster::install
   include redis_cluster::load_instances
 
@@ -68,10 +73,19 @@ class redis_cluster(
     enable => false,
   }
 
-  Class['::redis_cluster::repos']
-  -> Class['::redis_cluster::install']
-  -> Service['redis-server']
-  -> Class['::redis_cluster::load_instances']
+  if ($manage_repos)
+  {
+    Class['::redis_cluster::repos']
+    -> Class['::redis_cluster::install']
+    -> Service['redis-server']
+    -> Class['::redis_cluster::load_instances']
+  }
+  else
+  {
+    Class['::redis_cluster::install']
+    -> Service['redis-server']
+    -> Class['::redis_cluster::load_instances']
+  }
 }
 
 # vim:ft=puppet:et:sw=2:ts=2:sts=2:tw=0:fenc=utf-8:foldmethod=marker
